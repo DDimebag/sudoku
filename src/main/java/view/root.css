@@ -1,0 +1,14 @@
+#rootPane {
+	-fx-background-color: lightblue;
+}
+
+#easyPeasy:hover, #easy:hover, #hard:hover, #solver:hover, #toplist:hover{     
+ 	-fx-background-color: lightgrey;
+ 	-fx-text-fill: black;
+ 	-fx-font-weight: bold; 
+}
+
+#easyPeasy, #easy, #hard, #solver, #toplist{     
+ 	-fx-background-color: white;
+ 	-fx-background-radius: 0px;
+}
