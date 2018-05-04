@@ -23,16 +23,12 @@ import view.SudokuScene.Tile;
  * Controller for the Easy Peasy, Easy, Hard and Solver options.
  */
 public class BoardController {
-	public Tile tile = null;
-	//SudokuScene sudokuScene = new SudokuScene();
-	/**
-	 * Used to get back to main menu.
-	 */
+	
 	public void backButtonClicked(ActionEvent event) throws IOException {
 		Main.solved = false;
 		Board board = new Board();
 		SolverScene.solvableBoard = new Board(board);
-		
+
 		Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
 		Scene rootScene = new Scene(root);
 		
@@ -42,9 +38,7 @@ public class BoardController {
 		primaryStage.show();
     }
 	
-	/**
-	 * Used to solve the given puzzle.
-	 */
+
 	public void solveButtonPushed(ActionEvent event) throws IOException {
 		System.out.println(Main.solved);
 		if(Main.solved) {
@@ -68,7 +62,6 @@ public class BoardController {
 				solver.solveBoardAsc(tempBoard);
 				SolverScene.solvableBoard = tempBoard;
 				SolverScene.solvableBoard.printBoard();
-				//solverScene.fillBoard(tempBoard);
 				
 				Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    	primaryStage.setScene(new Scene(solverScene.createContent(tempBoard)));
@@ -121,15 +114,14 @@ public class BoardController {
 				SudokuScene.modifiedBoard.setValue(tile.index / 9, tile.index % 9, value);
 			}
 			else {
-				if(button==MouseButton.SECONDARY) {
+				if(button == MouseButton.SECONDARY) {
 					value = Integer.parseInt(tile.text.getText());
 					tile.text.setText(Integer.toString(--value));
 					SudokuScene.modifiedBoard.setValue(tile.index / 9, tile.index % 9, value);
 				}
 			}
 		}
-		
-		//System.out.println(tile.text);
+
 		SudokuScene.modifiedBoard.printBoard();
 		System.out.println("full:");
 		RootController.boardFull.printBoard();
@@ -139,16 +131,15 @@ public class BoardController {
 			solveTime = tc.getSecondsPassed();
 			tc.timer.cancel();
 			ss.showAlert();
-			//ha highscore, akkor új ablak
-			//egyébként main menu
+
 			Toplist tl = new Toplist();
 			tl.createToplistXML();
 			System.out.println(solveTime);
 			System.out.println(Main.level);
-			//System.out.println(tl.getTime(Main.level));
+
 			levelBestTime = tl.getTimeById(Main.level);
 			System.out.println(levelBestTime);
-			if(solveTime < levelBestTime || levelBestTime == 0) {
+			if (solveTime < levelBestTime || levelBestTime == 0) {
 				System.out.println("LEEEL");
 				tl.updateToplistXML(Main.level, solveTime);
 			}
@@ -173,7 +164,7 @@ public class BoardController {
 				SolverScene.solvableBoard.setValue(tile.index / 9, tile.index % 9, value);
 			}
 			else {
-				if(button == MouseButton.PRIMARY) {
+				if (button == MouseButton.PRIMARY) {
 					value = Integer.parseInt(tile.text.getText());
 					tile.text.setText(Integer.toString(++value));
 					SolverScene.solvableBoard.setValue(tile.index / 9, tile.index % 9, value);
@@ -194,7 +185,7 @@ public class BoardController {
 				SolverScene.solvableBoard.setValue(tile.index / 9, tile.index % 9, value);
 			}
 			else {
-				if(button==MouseButton.SECONDARY) {
+				if (button==MouseButton.SECONDARY) {
 					value = Integer.parseInt(tile.text.getText());
 					tile.text.setText(Integer.toString(--value));
 					SolverScene.solvableBoard.setValue(tile.index / 9, tile.index % 9, value);

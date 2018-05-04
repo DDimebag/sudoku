@@ -13,7 +13,6 @@ import java.util.List;
 public class EreaseValues {
 	
 	public List<Integer> indexes = new ArrayList<>();
-	//int level = 0;
 	
 	public void shuffleIndexes(){
 		for(int i = 0; i < 9 * 9; i++)

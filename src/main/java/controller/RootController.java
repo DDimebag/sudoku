@@ -28,14 +28,11 @@ public class RootController implements Initializable {
 	public static Board boardBlank;
 	public static Board boardFull;
 
-	/**
-	 * Opens a Sudoku board with a given number of blanks.
-	 */
+
 	public void easyPeasyButtonPushed(ActionEvent event) throws IOException {
 		int blanks = 5;
 		Main.level = 1;
-		Board b = new Board();
-		generateBoard(b, blanks);
+		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
@@ -53,8 +50,7 @@ public class RootController implements Initializable {
 	public void easyButtonPushed(ActionEvent event) throws IOException {
 		int blanks = 30;
 		Main.level = 2;
-		Board b = new Board();
-		generateBoard(b, blanks);
+		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
@@ -72,8 +68,7 @@ public class RootController implements Initializable {
 	public void hardButtonPushed(ActionEvent event) throws IOException {
 		int blanks = 40;
 		Main.level = 3;
-		Board b = new Board();
-		generateBoard(b, blanks);
+		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
@@ -88,9 +83,7 @@ public class RootController implements Initializable {
 	    });
 	}
 
-	/**
-	 * Solves the board given by the user. 
-	 */
+
 	public void solverButtonPushed(ActionEvent event) throws IOException {
 		Board b = new Board();
 		SolverScene ss = new SolverScene();
@@ -109,24 +102,28 @@ public class RootController implements Initializable {
 
 	/**
 	 * Generates a valid Sudoku board with the given number of blanks.
+	 * 
+	 * @param blanks number of cells to be emptied
+	 * @return 	     the generated board
 	 */
-	public void generateBoard(Board b, int blanks) {
-		b.setValue((int) (Math.random() * 9), (int) (Math.random() * 9), (int) (Math.random() * 9 + 1));
+	public Board generateBoard(int blanks) {
+		Board board = new Board();
+		board.setValue((int) (Math.random() * 9), (int) (Math.random() * 9), (int) (Math.random() * 9 + 1));
 
 		Solver slv = new Solver();
-		slv.solveBoardAsc(b);
+		slv.solveBoardAsc(board);
 
 		ShuffleBoard sb = new ShuffleBoard();
-		sb.shuffleBoard(b);
+		sb.shuffleBoard(board);
 
-		boardFull = new Board(b);
+		boardFull = new Board(board);
 
 		EreaseValues ev = new EreaseValues();
 		ev.shuffleIndexes();
-		ev.erease(b, blanks);
+		ev.erease(board, blanks);
 
-		boardBlank = new Board(b);
-		//b.printBoard();
-		//System.out.println();
+		boardBlank = new Board(board);
+		
+		return board;
 	}
 }

@@ -5,7 +5,7 @@ package model;
  */
 public class Board {
 	
-	public final int boardSize = 9;
+	public static final int boardSize = 9;
 	public int boxSize = 3;
 	private int[][] board = new int[boardSize][boardSize];
 	

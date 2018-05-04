@@ -74,14 +74,14 @@ public class Solver {
 	}
 	
 	public boolean checkRow(Board b, int row, int value) {
-		for(int i = 0; i < b.boardSize; i++)
+		for(int i = 0; i < Board.boardSize; i++)
 			if(b.getValue(row, i) == value)
 				return true;
 		return false;
 	}
 	
 	public boolean checkCol(Board b, int col, int value) {
-		for(int i = 0; i < b.boardSize; i++)
+		for(int i = 0; i < Board.boardSize; i++)
 			if(b.getValue(i, col) == value)
 				return true;
 		return false;

@@ -22,7 +22,6 @@ public class Toplist {
 	/**
 	 * If there's no score.xml file in the home directory, it creates one with scores elements in it. 
 	 * 
-	 * @throws IOException IOException when an IO error has occurred.
 	 */
 	public void createToplistXML() {
 
@@ -88,8 +87,6 @@ public class Toplist {
 				DOMSource source = new DOMSource(doc);
 				StreamResult result = new StreamResult(toplistFile);
 	
-				// Output to console for testing
-				// StreamResult result = new StreamResult(System.out);
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 				transformer.transform(source, result);
 

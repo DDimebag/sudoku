@@ -23,7 +23,7 @@ public class BoardTest {
 	public void testConstructorTwo() {
 		int[][] array = new int[9][9];
 		int[][] array2 = new int[9][9];
-		
+
 		for(int row = 0; row < 9; row++)
 			for(int col = 0; col < 9; col++)
 				array[row][col] = (int)(Math.random() * 9) + 1;
