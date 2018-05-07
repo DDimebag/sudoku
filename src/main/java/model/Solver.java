@@ -67,35 +67,51 @@ public class Solver {
 		return false;
 	}
 	
-	public boolean isValid(Board b, int row, int col, int value) {
-		if(!checkRow(b, row, value) && !checkCol(b, col, value) && !checkBox(b, row - row % 3, col - col % 3, value))
-			return true;
-		return false;
-	}
-	
-	public boolean checkRow(Board b, int row, int value) {
-		for(int i = 0; i < Board.boardSize; i++)
-			if(b.getValue(row, i) == value)
+	public boolean isValid(Board b, int row, int col, int value) throws IllegalArgumentException {
+		if (row < 0 || row > 8 || col < 0 || col > 8)
+			throw new IllegalArgumentException("Illegal row or column index");
+		else {
+			if(!isInRow(b, row, value) && !isInColumn(b, col, value) && !isInBox(b, row - row % 3, col - col % 3, value))
 				return true;
-		return false;
+			return false;
+		}
 	}
 	
-	public boolean checkCol(Board b, int col, int value) {
-		for(int i = 0; i < Board.boardSize; i++)
-			if(b.getValue(i, col) == value)
-				return true;
-		return false;
-	}
-	
-	public boolean checkBox(Board b, int startRow, int startCol, int value) {
-		for(int i = 0; i < b.boxSize; i++)
-			for(int j = 0; j < b.boxSize; j++)
-				if(b.getValue(i + startRow, j + startCol) == value)
+	public boolean isInRow(Board b, int row, int value) throws IllegalArgumentException {
+		if (row < 0 || row > 8 || value < 0 || value > 9)
+			throw new IllegalArgumentException("Illegal row index or value");
+		else {
+			for(int i = 0; i < Board.boardSize; i++)
+				if(b.getValue(row, i) == value)
 					return true;
-		return false;
+			return false;
+		}
 	}
 	
-	public boolean isValidBoard(Board b) {
+	public boolean isInColumn(Board b, int col, int value) throws IllegalArgumentException {
+		if (col < 0 || col > 8 || value < 0 || value > 9)
+			throw new IllegalArgumentException("Illegal column index or value");
+		else {
+			for(int i = 0; i < Board.boardSize; i++)
+				if(b.getValue(i, col) == value)
+					return true;
+			return false;
+		}
+	}
+	
+	public boolean isInBox(Board b, int startRow, int startCol, int value) throws IllegalArgumentException {
+		if (startRow < 0 || startRow > 8 || startCol < 0 || startCol > 8)
+			throw new IllegalArgumentException("Illegal startRow or startCol");
+		else {
+			for(int i = 0; i < Board.boxSize; i++)
+				for(int j = 0; j < Board.boxSize; j++)
+					if(b.getValue(i + startRow, j + startCol) == value)
+						return true;
+			return false;
+		}
+	}
+	
+	public boolean isNoConflictsOnBoard(Board b) {
 		int value = 0;
 		System.out.println("itt");
 		

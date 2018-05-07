@@ -53,15 +53,13 @@ public class BoardController {
 					
 			Board tempBoard = new Board(SolverScene.solvableBoard);
 			
-			solverScene.setIsRed(tempBoard.isZero(tempBoard));
+			solverScene.setIsRed(tempBoard.boardToBool());
 			
-			tempBoard.printBoard();
 			
-			if(solver.isValidBoard(tempBoard) && !solver.isMultipleSolution(tempBoard)) {
+			if(solver.isNoConflictsOnBoard(tempBoard) && !solver.isMultipleSolution(tempBoard)) {
 				System.out.println("megold");
 				solver.solveBoardAsc(tempBoard);
 				SolverScene.solvableBoard = tempBoard;
-				SolverScene.solvableBoard.printBoard();
 				
 				Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    	primaryStage.setScene(new Scene(solverScene.createContent(tempBoard)));
@@ -122,10 +120,6 @@ public class BoardController {
 			}
 		}
 
-		SudokuScene.modifiedBoard.printBoard();
-		System.out.println("full:");
-		RootController.boardFull.printBoard();
-		System.out.println();
 		if (Board.isEqual(RootController.boardFull, SudokuScene.modifiedBoard)) {
 			SudokuScene ss = new SudokuScene(tc);
 			solveTime = tc.getSecondsPassed();
@@ -194,7 +188,5 @@ public class BoardController {
 		}
 		
 		System.out.println(tile.text);
-		SolverScene.solvableBoard.printBoard();
-		System.out.println();
 	}
 }

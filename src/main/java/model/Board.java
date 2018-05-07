@@ -6,7 +6,7 @@ package model;
 public class Board {
 	
 	public static final int boardSize = 9;
-	public int boxSize = 3;
+	public static final int boxSize = 3;
 	private int[][] board = new int[boardSize][boardSize];
 	
 	/**
@@ -34,26 +34,22 @@ public class Board {
 		return this.board;
 	} 
 	
-	public void printBoard(){
-		for(int row = 0; row < boardSize; row++) {
-			for(int col = 0; col < boardSize; col++)
-				System.out.print(board[row][col] + " ");
-		System.out.println();
-		}
-	} 
-	
-	public void setValue(int row, int col, int value) {
-		if(value >= 0 && value <= 9)
+	public void setValue(int row, int col, int value) throws IllegalArgumentException {
+		if ((row >= 0 && row < 9) && (col >= 0 && col < 9) && (value >= 0 && value <= 9))
 			board[row][col] = value;
+		else if (row < 0 || row > 8)
+			throw new IllegalArgumentException("Illegal row index, row must be between 0 and 8");
+		else if (col < 0 || col > 8)
+			throw new IllegalArgumentException("Illegal column index, col must be between 0 and 8");
 		else
-			System.out.println("invalid number");
+			throw new IllegalArgumentException("Illegal value, value must be between 0 and 9");
 	}
 	
-	public int getValue(int row, int col) {
-		if(row >= 0 && row < 9 && col >= 0 && col < 9)
+	public int getValue(int row, int col) throws IllegalArgumentException {
+		if((row >= 0 && row < 9) && (col >= 0 && col < 9))
 			return board[row][col];
 		else
-			return -1;
+			throw new IllegalArgumentException("Illegal row or column index, row and col must be between 0 and 8");
 	}
 	
 	public static boolean isEqual(Board board1, Board board2) {
@@ -65,13 +61,13 @@ public class Board {
 		
 	}
 	
-	public boolean[] isZero(Board b) {
+	public boolean[] boardToBool() {
 		boolean[] arr = new boolean[81];
 		for(int i = 0; i < 81; i++)
 			arr[i] = true;
 		
 		for(int i = 0; i < 81; i++)
-			if(b.getValue(i / 9, i % 9) == 0)
+			if(this.getValue(i / 9, i % 9) == 0)
 				arr[i] = false;
 		
 		return arr;
