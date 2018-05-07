@@ -73,7 +73,7 @@ public class BoardController {
 	    }
 	}
 
-	public void tileClicked(MouseEvent event, Tile tile, TimerClass tc) {
+	public void tileClicked(MouseEvent event, Tile tile, TimerClass tc) throws IOException {
 		MouseButton button = event.getButton();
 		int value = 0;
 		int solveTime = 0;
@@ -135,9 +135,24 @@ public class BoardController {
 			System.out.println(levelBestTime);
 			if (solveTime < levelBestTime || levelBestTime == 0) {
 				System.out.println("LEEEL");
-				tl.updateToplistXML(Main.level, solveTime);
+				tl.updateTimeById(Main.level, solveTime);
+				Parent root = FXMLLoader.load(getClass().getResource("/view/NameInputScene.fxml"));
+				Scene rootScene = new Scene(root);
+				Main.primaryStage.setScene(rootScene);
+
+				Main.primaryStage.setTitle("Oh, hi Mark!");
+				Main.primaryStage.setResizable(false);
+				Main.primaryStage.show();
 			}
-				
+			else {
+				Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
+				Scene rootScene = new Scene(root);
+				Main.primaryStage.setScene(rootScene);
+
+				Main.primaryStage.setTitle("Sudoku for Progtech");
+				Main.primaryStage.setResizable(false);
+				Main.primaryStage.show();
+			}
 		}
 	}
 

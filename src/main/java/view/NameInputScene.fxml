@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.162" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NameInputController">
+   <children>
+      <Text layoutX="62.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your nickname:" AnchorPane.leftAnchor="70.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="184.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="184.357421875" AnchorPane.topAnchor="13.576171875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nameField" layoutX="219.0" layoutY="97.0" prefHeight="26.0" prefWidth="204.0" AnchorPane.rightAnchor="70.0" />
+      <Button fx:id="submitButton" layoutX="376.0" layoutY="150.0" mnemonicParsing="false" onAction="#submitButtonClicked" text="Submit" />
+      <Button fx:id="backButton" layoutX="70.0" layoutY="150.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
+      <Text layoutX="104.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You beat the previous recod in this difficulty">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

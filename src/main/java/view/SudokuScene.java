@@ -118,7 +118,14 @@ public class SudokuScene {
 			setAlignment(Pos.CENTER);
 			getChildren().addAll(border, text);
 
-			this.setOnMouseClicked(e -> ctrl.tileClicked(e, this, tc));
+			this.setOnMouseClicked(e -> {
+				try {
+					ctrl.tileClicked(e, this, tc);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			});
 		}	
 	}
 	
