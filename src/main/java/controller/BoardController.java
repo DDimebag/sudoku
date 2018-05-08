@@ -3,13 +3,11 @@ package controller;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import main.Main;
 import model.Board;
 import model.Solver;
@@ -28,14 +26,16 @@ public class BoardController {
 		Main.solved = false;
 		Board board = new Board();
 		SolverScene.solvableBoard = new Board(board);
-
+		
+		//Main.primaryStage.close();
+		
 		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Sudoku for Progtech");
-		primaryStage.setScene(rootScene);
-		primaryStage.show();
+		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Sudoku for Progtech");
+		Main.primaryStage.setScene(rootScene);
+		Main.primaryStage.show();
     }
 	
 
@@ -61,9 +61,9 @@ public class BoardController {
 				solver.solveBoardAsc(tempBoard);
 				SolverScene.solvableBoard = tempBoard;
 				
-				Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		    	primaryStage.setScene(new Scene(solverScene.createContent(tempBoard)));
-		        primaryStage.show();
+				//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+				Main.primaryStage.setScene(new Scene(solverScene.createContent(tempBoard)));
+				Main.primaryStage.show();
 		        Main.solved = true;
 			}
 			else {

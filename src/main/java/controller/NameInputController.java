@@ -46,10 +46,10 @@ public class NameInputController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("We are the Champions!!");
-		primaryStage.setScene(rootScene);
-		primaryStage.show();
+		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("We are the Champions!!");
+		Main.primaryStage.setScene(rootScene);
+		Main.primaryStage.show();
 		
     }
 

@@ -7,10 +7,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import main.Main;
 import model.Board;
@@ -39,13 +37,14 @@ public class RootController implements Initializable {
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
 		
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Level: Easy Peasy");
-		primaryStage.setScene(new Scene(ss.createContent(b)));
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Level: Easy Peasy");
+		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setResizable(false);
+		Main.primaryStage.show();
+		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
 			timer.timer.cancel();
+			System.exit(0);
 	    });
 	}
 
@@ -57,13 +56,14 @@ public class RootController implements Initializable {
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
 
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Level: Easy");
-		primaryStage.setScene(new Scene(ss.createContent(b)));
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Level: Easy");
+		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setResizable(false);
+		Main.primaryStage.show();
+		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
 			timer.timer.cancel();
+			System.exit(0);
 	    });
 	}
 
@@ -75,13 +75,14 @@ public class RootController implements Initializable {
 		SudokuScene ss = new SudokuScene(timer);
 		SudokuScene.modifiedBoard = new Board(boardBlank);
 
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Level: Hard");
-		primaryStage.setScene(new Scene(ss.createContent(b)));
-		primaryStage.setResizable(false);
-		primaryStage.show();
-		primaryStage.setOnCloseRequest((WindowEvent event1) -> {
+		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Level: Hard");
+		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setResizable(false);
+		Main.primaryStage.show();
+		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
 			timer.timer.cancel();
+			System.exit(0);
 	    });
 	}
 
@@ -90,11 +91,11 @@ public class RootController implements Initializable {
 		Board b = new Board();
 		SolverScene ss = new SolverScene();
 
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Solver");
-		primaryStage.setScene(new Scene(ss.createContent(b)));
-		primaryStage.setResizable(false);
-		primaryStage.show();
+		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Solver");
+		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setResizable(false);
+		Main.primaryStage.show();
 	}
 	
 	public void toplistButtonClicked(ActionEvent event) throws IOException {
@@ -102,10 +103,10 @@ public class RootController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("We are the Champions!!");
-		primaryStage.setScene(rootScene);
-		primaryStage.show();
+		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("We are the Champions!!");
+		Main.primaryStage.setScene(rootScene);
+		Main.primaryStage.show();
 	}
 
 	@Override

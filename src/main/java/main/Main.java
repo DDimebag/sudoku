@@ -22,6 +22,7 @@ public class Main extends Application{
 		primaryStage.setTitle("Sudoku for Progtech");
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		
 	}
 	
 	@Override
@@ -35,6 +36,7 @@ public class Main extends Application{
 			Main.primaryStage.setTitle("Sudoku for Progtech");
 			Main.primaryStage.setResizable(false);
 			Main.primaryStage.show();
+			//System.exit(0);
 	}
 	
 	public static void main(String[] args) {

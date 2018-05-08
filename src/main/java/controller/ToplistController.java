@@ -8,11 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import main.Main;
 import model.Board;
 import toplist.Toplist;
@@ -36,10 +34,10 @@ public class ToplistController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		primaryStage.setTitle("Sudoku for Progtech");
-		primaryStage.setScene(rootScene);
-		primaryStage.show();
+		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Main.primaryStage.setTitle("Sudoku for Progtech");
+		Main.primaryStage.setScene(rootScene);
+		Main.primaryStage.show();
     }
 	
 	@Override
