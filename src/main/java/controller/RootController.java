@@ -5,8 +5,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -29,7 +31,7 @@ public class RootController implements Initializable {
 	public static Board boardFull;
 
 
-	public void easyPeasyButtonPushed(ActionEvent event) throws IOException {
+	public void easyPeasyButtonClicked(ActionEvent event) throws IOException {
 		int blanks = 5;
 		Main.level = 1;
 		Board b = generateBoard(blanks);
@@ -47,7 +49,7 @@ public class RootController implements Initializable {
 	    });
 	}
 
-	public void easyButtonPushed(ActionEvent event) throws IOException {
+	public void easyButtonClicked(ActionEvent event) throws IOException {
 		int blanks = 30;
 		Main.level = 2;
 		Board b = generateBoard(blanks);
@@ -65,7 +67,7 @@ public class RootController implements Initializable {
 	    });
 	}
 
-	public void hardButtonPushed(ActionEvent event) throws IOException {
+	public void hardButtonClicked(ActionEvent event) throws IOException {
 		int blanks = 40;
 		Main.level = 3;
 		Board b = generateBoard(blanks);
@@ -84,7 +86,7 @@ public class RootController implements Initializable {
 	}
 
 
-	public void solverButtonPushed(ActionEvent event) throws IOException {
+	public void solverButtonClicked(ActionEvent event) throws IOException {
 		Board b = new Board();
 		SolverScene ss = new SolverScene();
 
@@ -92,6 +94,17 @@ public class RootController implements Initializable {
 		primaryStage.setTitle("Solver");
 		primaryStage.setScene(new Scene(ss.createContent(b)));
 		primaryStage.setResizable(false);
+		primaryStage.show();
+	}
+	
+	public void toplistButtonClicked(ActionEvent event) throws IOException {
+
+		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistView.fxml"));
+		Scene rootScene = new Scene(root);
+		
+		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		primaryStage.setTitle("We are the Champions!!");
+		primaryStage.setScene(rootScene);
 		primaryStage.show();
 	}
 

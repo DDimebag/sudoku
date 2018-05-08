@@ -29,7 +29,7 @@ public class BoardController {
 		Board board = new Board();
 		SolverScene.solvableBoard = new Board(board);
 
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);
 		
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -136,7 +136,7 @@ public class BoardController {
 			if (solveTime < levelBestTime || levelBestTime == 0) {
 				System.out.println("LEEEL");
 				tl.updateTimeById(Main.level, solveTime);
-				Parent root = FXMLLoader.load(getClass().getResource("/view/NameInputScene.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/view/NameInputView.fxml"));
 				Scene rootScene = new Scene(root);
 				Main.primaryStage.setScene(rootScene);
 
@@ -145,7 +145,7 @@ public class BoardController {
 				Main.primaryStage.show();
 			}
 			else {
-				Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 				Scene rootScene = new Scene(root);
 				Main.primaryStage.setScene(rootScene);
 

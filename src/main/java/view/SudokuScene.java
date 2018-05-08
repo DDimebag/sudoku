@@ -27,6 +27,8 @@ public class SudokuScene {
 	public static Board modifiedBoard;
 	BoardController ctrl = new BoardController();
 	TimerClass tc = new TimerClass();
+	private static final String IDLE_BUTTON_STYLE = "-fx-background-color: white; -fx-background-radius: 0px";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: lightgrey; -fx-text-fill: black; -fx-font-weight: bold";
 
 	public SudokuScene(TimerClass timer) {
 		tc = timer;
@@ -40,6 +42,10 @@ public class SudokuScene {
 		backButton.setLayoutX(75);
 		backButton.setLayoutY(25);
 
+		backButton.setStyle(IDLE_BUTTON_STYLE);
+		backButton.setOnMouseEntered(e -> backButton.setStyle(HOVERED_BUTTON_STYLE));
+		backButton.setOnMouseExited(e -> backButton.setStyle(IDLE_BUTTON_STYLE));
+		
 		backButton.setOnAction(e -> {
 			try {
 				ctrl.backButtonClicked(e);

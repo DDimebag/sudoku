@@ -2,13 +2,13 @@
 	-fx-background-color: lightblue;
 }
 
-#easyPeasy:hover, #easy:hover, #hard:hover, #solver:hover, #toplist:hover{     
+#easyPeasyButton:hover, #easyButton:hover, #hardButton:hover, #solverButton:hover, #toplistButton:hover {     
  	-fx-background-color: lightgrey;
  	-fx-text-fill: black;
  	-fx-font-weight: bold; 
 }
 
-#easyPeasy, #easy, #hard, #solver, #toplist{     
+#easyPeasyButton, #easyButton, #hardButton, #solverButton, #toplistButton {     
  	-fx-background-color: white;
  	-fx-background-radius: 0px;
 }

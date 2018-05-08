@@ -1,0 +1,14 @@
+#rootPane {
+    -fx-background-color: lightblue;
+}
+
+#backButton, #submitButton {     
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+}
+
+#backButton:hover, #submitButton:hover {     
+    -fx-background-color: lightgrey;
+    -fx-text-fill: black;
+    -fx-font-weight: bold; 
+}

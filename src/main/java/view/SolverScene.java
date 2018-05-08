@@ -27,6 +27,8 @@ public class SolverScene {
 		BoardController ctrl = new BoardController();
 		List<Tile> tiles = new ArrayList<>();
 		private boolean[] isRed = new boolean[81]; 
+		private static final String IDLE_BUTTON_STYLE = "-fx-background-color: white; -fx-background-radius: 0px";
+	    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: lightgrey; -fx-text-fill: black; -fx-font-weight: bold";
 		
 		public Parent createContent(Board b) {
 			Pane root = new Pane();
@@ -35,7 +37,12 @@ public class SolverScene {
 			Button backButton = new Button("Back");
 			backButton.setLayoutX(75);
 			backButton.setLayoutY(25);
-
+			
+			backButton.setStyle(IDLE_BUTTON_STYLE);
+			backButton.setOnMouseEntered(e -> backButton.setStyle(HOVERED_BUTTON_STYLE));
+			backButton.setOnMouseExited(e -> backButton.setStyle(IDLE_BUTTON_STYLE));
+			
+			
 			backButton.setOnAction(e -> {
 				try {
 					ctrl.backButtonClicked(e);
@@ -50,6 +57,11 @@ public class SolverScene {
 			Button solveButton = new Button("Solve");
 			solveButton.setLayoutX(470);
 			solveButton.setLayoutY(25);
+			
+			solveButton.setStyle(IDLE_BUTTON_STYLE);
+			solveButton.setOnMouseEntered(e -> solveButton.setStyle(HOVERED_BUTTON_STYLE));
+			solveButton.setOnMouseExited(e -> solveButton.setStyle(IDLE_BUTTON_STYLE));
+			
 			//TODO
 			solveButton.setOnAction(e -> {
 				try {

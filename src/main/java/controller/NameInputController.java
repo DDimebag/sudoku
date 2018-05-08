@@ -27,7 +27,7 @@ public class NameInputController implements Initializable {
 		Board board = new Board();
 		SolverScene.solvableBoard = new Board(board);
 
-		Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);
 		
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -43,7 +43,7 @@ public class NameInputController implements Initializable {
 		
 		topList.updateNicknameById(Main.level, nickname);
 		
-		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistScene.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistView.fxml"));
 		Scene rootScene = new Scene(root);
 		
 		Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();

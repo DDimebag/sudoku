@@ -26,15 +26,15 @@ public class Main extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-			this.primaryStage = primaryStage;
-			Parent root = FXMLLoader.load(getClass().getResource("/view/Root.fxml"));
+			Main.primaryStage = primaryStage;
+			Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 			Scene rootScene = new Scene(root);
 			//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/target/resources/icon.png")));
-			this.primaryStage.setScene(rootScene);
+			Main.primaryStage.setScene(rootScene);
 
-			this.primaryStage.setTitle("Sudoku for Progtech");
-			this.primaryStage.setResizable(false);
-			this.primaryStage.show();
+			Main.primaryStage.setTitle("Sudoku for Progtech");
+			Main.primaryStage.setResizable(false);
+			Main.primaryStage.show();
 	}
 	
 	public static void main(String[] args) {
