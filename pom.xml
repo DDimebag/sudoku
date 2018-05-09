@@ -59,6 +59,7 @@
 						<goals>
 							<goal>enforce</goal>
 						</goals>
+						<phase>validate</phase>
 						<configuration>
 							<rules>
 								<requireJavaVersion>
@@ -178,7 +179,7 @@
 			</roles>
 		</developer>
 	</developers>
-	<!-- TODO -->
+
 	<scm>
 		<connection>scm:git:https://github.com/DDimebag/sudoku.git</connection>
 		<developerConnection>scm:git:https://github.com/DDimebag/sudoku.git</developerConnection>
