@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import toplist.Toplist;
 
 public class Main extends Application{
 	public static Stage primaryStage;
@@ -27,6 +28,9 @@ public class Main extends Application{
 	}
 	
 	public static void main(String[] args) {
+		Toplist toplist = new Toplist();
+		toplist.createToplistXML();
+		
 		launch(args);
 	} 
 }

@@ -1,0 +1,15 @@
+#rootPane {
+	-fx-background-color: lightblue;
+}
+
+#easyPeasyButton:hover, #easyButton:hover, #hardButton:hover, #solverButton:hover, #toplistButton:hover, #backButton:hover, #submitButton:hover {     
+ 	-fx-background-color: lightgrey;
+ 	-fx-text-fill: black;
+ 	-fx-font-weight: bold; 
+}
+
+#easyPeasyButton, #easyButton, #hardButton, #solverButton, #toplistButton, #backButton, #submitButton {     
+ 	-fx-background-color: white;
+ 	-fx-background-radius: 0px;
+}
+

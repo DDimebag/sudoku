@@ -127,7 +127,6 @@ public class BoardController {
 			ss.showAlert();
 
 			Toplist tl = new Toplist();
-			tl.createToplistXML();
 			System.out.println(solveTime);
 			System.out.println(Main.level);
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" maxHeight="600.0" maxWidth="500.0" minHeight="600.0" minWidth="500.0" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.162" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToplistController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f02f28" height="75.0" layoutY="112.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="112.0" />
+      <Text fx:id="title" layoutY="83.453125" strokeType="OUTSIDE" strokeWidth="0.0" text="Toplist" textAlignment="CENTER" wrappingWidth="500.0000000000001" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="Arial" size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="mode" layoutX="35.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="time" layoutX="190.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="nickName" layoutX="345.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="m1" layoutX="35.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Easy Peasy" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="m2" layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Easy" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="m3" layoutX="35.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hard" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="400.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="t1" layoutX="190.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="t2" layoutX="190.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="t3" layoutX="190.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.topAnchor="400.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="n1" layoutX="320.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="200.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="n2" layoutX="320.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="300.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="n3" layoutX="320.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="400.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="backButton" layoutX="60.0" layoutY="505.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="30.0" prefWidth="150.0" text="Back" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="505.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

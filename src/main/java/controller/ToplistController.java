@@ -18,13 +18,8 @@ import view.SolverScene;
 
 public class ToplistController implements Initializable {
 	 	@FXML
-	    private Text textField1;
+	    private Text t1, t2, t3, n1, n2, n3;
 
-	    @FXML
-	    private Text textField2;
-
-	    @FXML
-	    private Text textField3;
 	    
 	public void backButtonClicked(ActionEvent event) throws IOException {
 		Main.solved = false;
@@ -44,14 +39,32 @@ public class ToplistController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Toplist topList = new Toplist();
 		
-		String text1 = topList.getNicknameById(1);
-		String text2 = topList.getNicknameById(2);
-		String text3 = topList.getNicknameById(3);
+		String name1 = topList.getNicknameById(1);
+		String name2 = topList.getNicknameById(2);
+		String name3 = topList.getNicknameById(3);
 		
-		textField1.setText(text1);
-		textField2.setText(text2);
-		textField3.setText(text3);
+		String time1 = Integer.toString(topList.getTimeById(1));
+		String time2 = Integer.toString(topList.getTimeById(2));
+		String time3 = Integer.toString(topList.getTimeById(3));
 		
+		n1.setText(name1);
+		n2.setText(name2);
+		n3.setText(name3);
+		
+		if(time1.equals("0"))
+			t1.setText("");
+		else
+			t1.setText(time1);
+		
+		if(time2.equals("0"))
+			t2.setText("");
+		else
+			t2.setText(time2);
+		
+		if(time3.equals("0"))
+			t3.setText("");
+		else
+			t3.setText(time3);
 	}
 
 }

@@ -17,20 +17,37 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class Toplist {
-	String fileSeparator = System.getProperty("file.separator");
-	private File toplistFile = new File(System.getProperty("user.dir") + fileSeparator + "target" + fileSeparator + "classes"
-			+ fileSeparator + "toplist.xml");
-	File inputFile = toplistFile;
+	private String fileSeparator = System.getProperty("file.separator");
+	/*
+	 * private File toplistFile = new File(System.getProperty("user.dir") +
+	 * fileSeparator + "target" + fileSeparator + "classes" + fileSeparator +
+	 * "toplist.xml");
+	 */
+	private File toplistFile;
+
+	public Toplist() {
+		if (System.getProperty("user.dir").contains("target")) {
+			System.out.println("true");
+			toplistFile = new File(
+					System.getProperty("user.dir") + fileSeparator + "classes" + fileSeparator + "toplist.xml");
+		} else {
+			System.out.println("false");
+			toplistFile = new File(System.getProperty("user.dir") + fileSeparator + "target" + fileSeparator + "classes"
+					+ fileSeparator + "toplist.xml");
+		}
+	}
 
 	/**
 	 * If there's no score.xml file in the home directory, it creates one with
 	 * scores elements in it.
 	 * 
 	 */
+
 	public void createToplistXML() {
-			
-		if (!toplistFile.exists()) {
-			try {
+
+		try {
+			if (!toplistFile.exists()) {
+				System.out.println("toplistfilecreator");
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 				Document doc = docBuilder.newDocument();
@@ -86,11 +103,13 @@ public class Toplist {
 				StreamResult result = new StreamResult(toplistFile);
 
 				transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+				transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+				transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 				transformer.transform(source, result);
-
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -99,31 +118,30 @@ public class Toplist {
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(inputFile);
+			Document doc = dBuilder.parse(toplistFile);
 
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
-			
+
 			System.out.println("legnth: " + nList.getLength());
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					if (Integer.toString(levelId).equals(eElement.getAttribute("id"))) 
+					if (Integer.toString(levelId).equals(eElement.getAttribute("id")))
 						eElement.getElementsByTagName("time").item(0).setTextContent(Integer.toString(time));
 				}
 			}
 
-			
-            Transformer tf = TransformerFactory.newInstance().newTransformer();
-            tf.setOutputProperty(OutputKeys.INDENT, "yes");
-            tf.setOutputProperty(OutputKeys.METHOD, "xml");
-            tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+			Transformer tf = TransformerFactory.newInstance().newTransformer();
+			tf.setOutputProperty(OutputKeys.INDENT, "yes");
+			tf.setOutputProperty(OutputKeys.METHOD, "xml");
+			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 
-            DOMSource domSource = new DOMSource(doc);
-            StreamResult result = new StreamResult(toplistFile);
-            tf.transform(domSource, result);
-            
+			DOMSource domSource = new DOMSource(doc);
+			StreamResult result = new StreamResult(toplistFile);
+			tf.transform(domSource, result);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -134,42 +152,41 @@ public class Toplist {
 
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(inputFile);
+			Document doc = dBuilder.parse(toplistFile);
 
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
-			
+
 			System.out.println("legnth: " + nList.getLength());
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					if (Integer.toString(levelId).equals(eElement.getAttribute("id"))) 
+					if (Integer.toString(levelId).equals(eElement.getAttribute("id")))
 						eElement.getElementsByTagName("nickname").item(0).setTextContent(nickname);
 				}
 			}
 
-			
-            Transformer tf = TransformerFactory.newInstance().newTransformer();
-            tf.setOutputProperty(OutputKeys.INDENT, "yes");
-            tf.setOutputProperty(OutputKeys.METHOD, "xml");
-            tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+			Transformer tf = TransformerFactory.newInstance().newTransformer();
+			tf.setOutputProperty(OutputKeys.INDENT, "yes");
+			tf.setOutputProperty(OutputKeys.METHOD, "xml");
+			tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
 
-            DOMSource domSource = new DOMSource(doc);
-            StreamResult result = new StreamResult(toplistFile);
-            tf.transform(domSource, result);
-            
+			DOMSource domSource = new DOMSource(doc);
+			StreamResult result = new StreamResult(toplistFile);
+			tf.transform(domSource, result);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public int getTimeById(int levelId) {
 		int seconds = 0;
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(inputFile);
+			Document doc = dBuilder.parse(toplistFile);
 
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
@@ -190,13 +207,13 @@ public class Toplist {
 		}
 		return seconds;
 	}
-	
+
 	public String getNicknameById(int levelId) {
 		String nickname = null;
 		try {
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(inputFile);
+			Document doc = dBuilder.parse(toplistFile);
 
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
