@@ -18,7 +18,7 @@ import view.SudokuScene;
 import view.SudokuScene.Tile;
 
 /**
- * Controller for the Easy Peasy, Easy, Hard and Solver options.
+ * Controller Class for the Easy Peasy, Easy, Hard and Solver options.
  */
 public class BoardController {
 	
@@ -26,8 +26,6 @@ public class BoardController {
 		Main.solved = false;
 		Board board = new Board();
 		SolverScene.solvableBoard = new Board(board);
-		
-		//Main.primaryStage.close();
 		
 		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);

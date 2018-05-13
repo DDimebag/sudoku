@@ -16,15 +16,20 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * Manages the high scores of the game via XML.
+ * 
+ * Used to create and xml document, it can also read, and write from it.
+ *
+ */
 public class Toplist {
 	private String fileSeparator = System.getProperty("file.separator");
-	/*
-	 * private File toplistFile = new File(System.getProperty("user.dir") +
-	 * fileSeparator + "target" + fileSeparator + "classes" + fileSeparator +
-	 * "toplist.xml");
-	 */
 	private File toplistFile;
 
+	/**
+	 * Assigns {@code toplistFile} depending on from which directory we run the
+	 * program.
+	 */
 	public Toplist() {
 		if (System.getProperty("user.dir").contains("target")) {
 			System.out.println("true");
@@ -38,11 +43,8 @@ public class Toplist {
 	}
 
 	/**
-	 * If there's no score.xml file in the home directory, it creates one with
-	 * scores elements in it.
-	 * 
+	 * Creates the toplist.xml, if it doesn't exist yet.
 	 */
-
 	public void createToplistXML() {
 
 		try {
@@ -113,6 +115,15 @@ public class Toplist {
 		}
 	}
 
+	/**
+	 * Updates the text content of the time element -in the XML document with the
+	 * given number of seconds- whose parent element's id is the first parameter.
+	 * 
+	 * @param levelId
+	 *            the id of the element to be updated
+	 * @param time
+	 *            the new time value
+	 */
 	public void updateTimeById(int levelId, int time) {
 		try {
 
@@ -147,6 +158,15 @@ public class Toplist {
 		}
 	}
 
+	/**
+	 * Updates the text content of the nickname element -in the XML document with
+	 * the given String- whose parent element's id is the first parameter.
+	 * 
+	 * @param levelId
+	 *            the id of the element to be updated
+	 * @param nickname
+	 *            the new nickname value
+	 */
 	public void updateNicknameById(int levelId, String nickname) {
 		try {
 
@@ -181,6 +201,14 @@ public class Toplist {
 		}
 	}
 
+	/**
+	 * Gets the text content of the time element, whose parent element has the given
+	 * id.
+	 * 
+	 * @param levelId
+	 *            parent elements id
+	 * @return time elements text content casted to int
+	 */
 	public int getTimeById(int levelId) {
 		int seconds = 0;
 		try {
@@ -208,6 +236,14 @@ public class Toplist {
 		return seconds;
 	}
 
+	/**
+	 * Gets the text content of the nickname element, whose parent element has the
+	 * given id.
+	 * 
+	 * @param levelId
+	 *            parent elements id
+	 * @return nickname elements text content
+	 */
 	public String getNicknameById(int levelId) {
 		String nickname = null;
 		try {

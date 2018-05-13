@@ -4,16 +4,20 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Ereases a given number of values from a Board object.
+ * Ereases a given number of values from a {@code Board} object.
  * 
- * Set a given number of random numbers to zero,
- * until the board is still solvable and has only one solution.
- *
  */
 public class EreaseValues {
 	
+	/**
+	 * Random indexes of the board.
+	 */
 	public List<Integer> indexes = new ArrayList<>();
 	
+	/**
+	 * Fills the {@code indexes} list from 0 to 80,
+	 * then shuffels it.
+	 */
 	public void shuffleIndexes(){
 		for(int i = 0; i < 9 * 9; i++)
 			indexes.add(i);
@@ -21,7 +25,14 @@ public class EreaseValues {
 		Collections.shuffle(indexes);
 	}
 	
-	public void erease(Board b, int n) {
+	/**
+	 * Sets a given number of random numbers to zero,
+	 * until the board is still solvable and has only one solution.
+	 * 
+	 * @param board the {@code Board}
+	 * @param n		the number of cells to be emptied
+	 */
+	public void erease(Board board, int n) {
 		int row, col;
 		int ereasedValues = n;
 		Solver solve = new Solver();
@@ -32,16 +43,16 @@ public class EreaseValues {
 				break;
 			row = i / 9;
 			col = i % 9;
-			tempValue = b.getValue(row, col);
-			b.setValue(row, col, 0);
-			Board b2 = new Board(b);
+			tempValue = board.getValue(row, col);
+			board.setValue(row, col, 0);
+			Board b2 = new Board(board);
 			
-			if(solve.solveBoardAsc(b2) && !solve.isMultipleSolution(b)) {
+			if(solve.solveBoardAsc(b2) && !solve.isMultipleSolution(board)) {
 				ereasedValues--;
 				continue;
 			}
 			else {
-				b.setValue(row, col, tempValue);
+				board.setValue(row, col, tempValue);
 				ereasedValues++;
 			}
 				
