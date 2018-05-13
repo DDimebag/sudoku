@@ -128,6 +128,7 @@ public class BoardController {
 			ss.showAlert();
 
 			Toplist tl = new Toplist();
+		
 			logger.trace("current time: " + solveTime);
 			logger.trace("level id: " + Main.level);
 

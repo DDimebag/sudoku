@@ -13,3 +13,22 @@
  	-fx-background-radius: 0px;
 }
 
+#m1, #t1, #n1 {
+    -fx-fill: salmon;
+}
+
+#m2, #t2, #n2 {
+    -fx-fill: orangered;
+}
+
+#m3, #t3, #n3 {
+    -fx-fill: darkred;
+}
+
+#mode, #time, #nickName {
+    -fx-font-weight: bold;
+}
+
+#title{
+    -fx-font-family: Helvetica, Arial, sans-serif;
+}

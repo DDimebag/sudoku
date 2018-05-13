@@ -6,7 +6,13 @@ package model;
  */
 public class Board {
 
+	/**
+	 * Size of the {@code Board}.
+	 */
 	public static final int boardSize = 9;
+	/**
+	 * Size of the boxes within a {@code Board}.
+	 */
 	public static final int boxSize = 3;
 	private int[][] board = new int[boardSize][boardSize];
 
@@ -44,7 +50,7 @@ public class Board {
 	}
 
 	/**
-	 * Gives you the array representation of the {@code Board}
+	 * Gives you the array representation of the {@code Board}.
 	 * 
 	 * @return the 2d array
 	 */
@@ -52,6 +58,18 @@ public class Board {
 		return this.board;
 	}
 
+	/**
+	 * Sets the given tile to {@code value}.
+	 * 
+	 * @param row
+	 *            row index of the {@code Board}
+	 * @param col
+	 *            column index of the {@code Board}
+	 * @param value
+	 *            the value to be set
+	 * @throws IllegalArgumentException
+	 *             if row, column indexes or the {@code value} is out of bounds
+	 */
 	public void setValue(int row, int col, int value) throws IllegalArgumentException {
 		if ((row >= 0 && row < 9) && (col >= 0 && col < 9) && (value >= 0 && value <= 9))
 			board[row][col] = value;
@@ -63,6 +81,17 @@ public class Board {
 			throw new IllegalArgumentException("Illegal value, value must be between 0 and 9");
 	}
 
+	/**
+	 * Gives a value back from the {@code board}.
+	 * 
+	 * @param row
+	 *            the row index
+	 * @param col
+	 *            the column index
+	 * @return the vaue, of the {@code board} which situated in the {@code row} and
+	 *         {@code col} indexes
+	 * @throws IllegalArgumentException
+	 */
 	public int getValue(int row, int col) throws IllegalArgumentException {
 		if ((row >= 0 && row < 9) && (col >= 0 && col < 9))
 			return board[row][col];
@@ -71,7 +100,7 @@ public class Board {
 	}
 
 	/**
-	 * Compare two {@code Board} objects
+	 * Compare two {@code Board} objects.
 	 * 
 	 * @param board1
 	 *            the first {@code Board} to compare

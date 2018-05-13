@@ -20,7 +20,6 @@
       </Text>
       <TextField fx:id="nameField" layoutX="219.0" layoutY="97.0" prefHeight="26.0" prefWidth="204.0" AnchorPane.rightAnchor="70.0" />
       <Button fx:id="submitButton" layoutX="376.0" layoutY="150.0" mnemonicParsing="false" onAction="#submitButtonClicked" text="Submit" />
-      <Button fx:id="backButton" layoutX="70.0" layoutY="150.0" mnemonicParsing="false" onAction="#backButtonClicked" text="Back" />
       <Text layoutX="104.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You beat the previous recod in this difficulty">
          <font>
             <Font size="15.0" />

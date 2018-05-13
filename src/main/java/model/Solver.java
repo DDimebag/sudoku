@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Uses a backtracking algorithm to solve a Board.
+ * Uses a backtracking algorithm to solve a {@code Board}.
  * 
  * Can solve the board in ascending and descending order and can determine if
  * there is multiple solution.
@@ -9,6 +9,11 @@ package model;
  */
 public class Solver {
 
+	/**
+	 * Solves the given {@code Board} object in ascending order.
+	 * 
+	 * @param b	the {@code Board} to be solved
+	 */
 	public boolean solveBoardAsc(Board b) {
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
@@ -31,6 +36,11 @@ public class Solver {
 		return true;
 	}
 
+	/**
+	 * Solves the given {@code Board} object in descending order.
+	 * 
+	 * @param b	the {@code Board} to be solved
+	 */
 	public boolean solveBoardDesc(Board b) {
 		for (int row = 0; row < 9; row++) {
 			for (int col = 0; col < 9; col++) {
