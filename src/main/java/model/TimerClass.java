@@ -3,6 +3,9 @@ package model;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.scene.text.Text;
 
 /**
@@ -10,15 +13,18 @@ import javafx.scene.text.Text;
  *
  */
 public class TimerClass {
+	
 	private int secondsPassed = 0;
 
+	private static Logger logger = LoggerFactory.getLogger(Timer.class);
+	
 	public Timer timer = new Timer();
 	public Text timerText = new Text();
 	public TimerTask task = new TimerTask() {
 		public void run() {
 			secondsPassed++;
 			timerText.setText(Integer.toString(secondsPassed));
-			System.out.println(secondsPassed);
+			logger.trace("secondsPassed: " + secondsPassed);
 		}
 	};
 

@@ -38,7 +38,7 @@ public class NameInputController implements Initializable {
 	
 	public void submitButtonClicked(ActionEvent event) throws IOException {
 		String nickname = nameField.getText();
-		System.out.println(nickname);
+		
 		Toplist topList = new Toplist();
 		
 		topList.updateNicknameById(Main.level, nickname);

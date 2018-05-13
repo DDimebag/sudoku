@@ -1,6 +1,10 @@
 package controller;
 
 import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +25,7 @@ import view.SudokuScene.Tile;
  * Controller Class for the Easy Peasy, Easy, Hard and Solver options.
  */
 public class BoardController {
+	private static Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	public void backButtonClicked(ActionEvent event) throws IOException {
 		Main.solved = false;
@@ -38,16 +43,14 @@ public class BoardController {
 	
 
 	public void solveButtonPushed(ActionEvent event) throws IOException {
-		System.out.println(Main.solved);
+		logger.info("solved value: " + Main.solved);
 		if(Main.solved) {
-			System.out.println("solveeeed");
+			;
 
 		}
 		else {
 			Solver solver = new Solver();
 			SolverScene solverScene = new SolverScene();
-			
-			System.out.println("solveButton");
 					
 			Board tempBoard = new Board(SolverScene.solvableBoard);
 			
@@ -55,7 +58,7 @@ public class BoardController {
 			
 			
 			if(solver.isNoConflictsOnBoard(tempBoard) && !solver.isMultipleSolution(tempBoard)) {
-				System.out.println("megold");
+				logger.info("Solving the Board...");
 				solver.solveBoardAsc(tempBoard);
 				SolverScene.solvableBoard = tempBoard;
 				
@@ -66,7 +69,7 @@ public class BoardController {
 			}
 			else {
 					solverScene.notSolvableAlert();
-					System.out.println("not solvable");
+					logger.warn("Board is not solvable");
 				}
 	    }
 	}
@@ -125,13 +128,15 @@ public class BoardController {
 			ss.showAlert();
 
 			Toplist tl = new Toplist();
-			System.out.println(solveTime);
-			System.out.println(Main.level);
+			logger.trace("current time: " + solveTime);
+			logger.trace("level id: " + Main.level);
 
 			levelBestTime = tl.getTimeById(Main.level);
-			System.out.println(levelBestTime);
+			
+			logger.trace("best time: " + levelBestTime);
+			
 			if (solveTime < levelBestTime || levelBestTime == 0) {
-				System.out.println("LEEEL");
+				logger.trace("new record");
 				tl.updateTimeById(Main.level, solveTime);
 				Parent root = FXMLLoader.load(getClass().getResource("/view/NameInputView.fxml"));
 				Scene rootScene = new Scene(root);
@@ -198,7 +203,6 @@ public class BoardController {
 				}
 			}
 		}
-		
-		System.out.println(tile.text);
+		logger.trace("tile text: " + tile.text.getText());
 	}
 }

@@ -10,6 +10,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,6 +25,8 @@ import org.w3c.dom.NodeList;
  *
  */
 public class Toplist {
+	private static Logger logger = LoggerFactory.getLogger(Toplist.class);
+	
 	private String fileSeparator = System.getProperty("file.separator");
 	private File toplistFile;
 
@@ -32,11 +36,9 @@ public class Toplist {
 	 */
 	public Toplist() {
 		if (System.getProperty("user.dir").contains("target")) {
-			System.out.println("true");
 			toplistFile = new File(
 					System.getProperty("user.dir") + fileSeparator + "classes" + fileSeparator + "toplist.xml");
 		} else {
-			System.out.println("false");
 			toplistFile = new File(System.getProperty("user.dir") + fileSeparator + "target" + fileSeparator + "classes"
 					+ fileSeparator + "toplist.xml");
 		}
@@ -49,7 +51,7 @@ public class Toplist {
 
 		try {
 			if (!toplistFile.exists()) {
-				System.out.println("toplistfilecreator");
+				logger.trace("toplist.xml created");
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 				Document doc = docBuilder.newDocument();
@@ -134,7 +136,6 @@ public class Toplist {
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
 
-			System.out.println("legnth: " + nList.getLength());
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -177,7 +178,6 @@ public class Toplist {
 			doc.getDocumentElement().normalize();
 			NodeList nList = doc.getElementsByTagName("level");
 
-			System.out.println("legnth: " + nList.getLength());
 			for (int i = 0; i < nList.getLength(); i++) {
 				Node nNode = nList.item(i);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -224,14 +224,12 @@ public class Toplist {
 
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
-					System.out.println("level id : " + eElement.getAttribute("id"));
-					System.out.println("time: " + eElement.getElementsByTagName("time").item(0).getTextContent());
 					if (eElement.getAttribute("id").equals(Integer.toString(levelId)))
 						seconds = Integer.parseInt(eElement.getElementsByTagName("time").item(0).getTextContent());
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("exception", e);
 		}
 		return seconds;
 	}

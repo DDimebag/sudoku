@@ -61,7 +61,6 @@ public class Solver {
 	 * @return true if it has multiple solution
 	 */
 	public boolean isMultipleSolution(Board b) {
-		System.out.println("itt0");
 		Board board1 = new Board(b);
 		Board board2 = new Board(b);
 
@@ -185,7 +184,6 @@ public class Solver {
 	 */
 	public boolean isNoConflictsOnBoard(Board b) {
 		int value = 0;
-		System.out.println("itt");
 
 		for (int row = 0; row < 9; row++)
 			for (int col = 0; col < 9; col++) {
