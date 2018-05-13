@@ -29,6 +29,5 @@ This project is licensed under the Apache License, Version 2.0  - see the [LICEN
 
 ## Acknowledgments
 
-* This project was made for my
-* Programming Environments and
-* Programming Technologies classes
+* Thanks for my Programming Environments and Programming Technologies teachers
+* and of course for the [Stackoverflow](https://stackoverflow.com/)
