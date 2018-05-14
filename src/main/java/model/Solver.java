@@ -12,7 +12,12 @@ public class Solver {
 	/**
 	 * Solves the given {@code Board} object in ascending order.
 	 * 
-	 * @param b	the {@code Board} to be solved
+	 * @param b
+	 *            the {@code Board} to be solved
+	 * @return true  if there is no empty cells
+	 * 		   false if you can't paste any value in
+	 *         		 a cell without violation it triggers backtracking
+	 * 
 	 */
 	public boolean solveBoardAsc(Board b) {
 		for (int row = 0; row < 9; row++) {
@@ -39,7 +44,12 @@ public class Solver {
 	/**
 	 * Solves the given {@code Board} object in descending order.
 	 * 
-	 * @param b	the {@code Board} to be solved
+	 * @param b
+	 *            the {@code Board} to be solved
+	 * @return true  if there is no empty cells
+	 * 		   false if you can't paste any value in
+	 *         a cell without violation it triggers backtracking
+	 * 
 	 */
 	public boolean solveBoardDesc(Board b) {
 		for (int row = 0; row < 9; row++) {
@@ -189,8 +199,9 @@ public class Solver {
 	/**
 	 * Checks if the {@code Board} has any conflicts on it.
 	 * 
-	 * @param b the {@code Board} to be checked
-	 * @return	true the {@code Board} has no conflicts.
+	 * @param b
+	 *            the {@code Board} to be checked
+	 * @return true the {@code Board} has no conflicts.
 	 */
 	public boolean isNoConflictsOnBoard(Board b) {
 		int value = 0;

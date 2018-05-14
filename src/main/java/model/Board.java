@@ -91,7 +91,7 @@ public class Board {
 	 *            the column index
 	 * @return the vaue, of the {@code board} which situated in the {@code row} and
 	 *         {@code col} indexes
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if row or column is out of bounds
 	 */
 	public int getValue(int row, int col) throws IllegalArgumentException {
 		if ((row >= 0 && row < 9) && (col >= 0 && col < 9))
