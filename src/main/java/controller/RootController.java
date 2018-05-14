@@ -16,11 +16,11 @@ import model.EreaseValues;
 import model.ShuffleBoard;
 import model.Solver;
 import model.TimerClass;
-import view.SolverScene;
-import view.SudokuScene;
+import view.SolverView;
+import view.SudokuView;
 
 /**
- * Controller for the Main Menu
+ * Controller for the Main Menu.
  *
  */
 public class RootController implements Initializable {
@@ -34,12 +34,11 @@ public class RootController implements Initializable {
 		Main.level = 1;
 		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
-		SudokuScene ss = new SudokuScene(timer);
-		SudokuScene.modifiedBoard = new Board(boardBlank);
+		SudokuView sv = new SudokuView(timer);
+		SudokuView.modifiedBoard = new Board(boardBlank);
 		
-		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("Level: Easy Peasy");
-		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setScene(new Scene(sv.createContent(b)));
 		Main.primaryStage.setResizable(false);
 		Main.primaryStage.show();
 		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
@@ -53,12 +52,11 @@ public class RootController implements Initializable {
 		Main.level = 2;
 		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
-		SudokuScene ss = new SudokuScene(timer);
-		SudokuScene.modifiedBoard = new Board(boardBlank);
+		SudokuView sv = new SudokuView(timer);
+		SudokuView.modifiedBoard = new Board(boardBlank);
 
-		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("Level: Easy");
-		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setScene(new Scene(sv.createContent(b)));
 		Main.primaryStage.setResizable(false);
 		Main.primaryStage.show();
 		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
@@ -72,12 +70,11 @@ public class RootController implements Initializable {
 		Main.level = 3;
 		Board b = generateBoard(blanks);
 		TimerClass timer = new TimerClass();
-		SudokuScene ss = new SudokuScene(timer);
-		SudokuScene.modifiedBoard = new Board(boardBlank);
+		SudokuView sv = new SudokuView(timer);
+		SudokuView.modifiedBoard = new Board(boardBlank);
 
-		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("Level: Hard");
-		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setScene(new Scene(sv.createContent(b)));
 		Main.primaryStage.setResizable(false);
 		Main.primaryStage.show();
 		Main.primaryStage.setOnCloseRequest((WindowEvent event1) -> {
@@ -89,11 +86,10 @@ public class RootController implements Initializable {
 
 	public void solverButtonClicked(ActionEvent event) throws IOException {
 		Board b = new Board();
-		SolverScene ss = new SolverScene();
+		SolverView sv = new SolverView();
 
-		//Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("Solver");
-		Main.primaryStage.setScene(new Scene(ss.createContent(b)));
+		Main.primaryStage.setScene(new Scene(sv.createContent(b)));
 		Main.primaryStage.setResizable(false);
 		Main.primaryStage.show();
 	}
@@ -103,7 +99,6 @@ public class RootController implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/view/ToplistView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("We are the Champions!!");
 		Main.primaryStage.setScene(rootScene);
 		Main.primaryStage.show();
@@ -111,7 +106,6 @@ public class RootController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO Auto-generated method stub
 	}
 
 	/**

@@ -21,7 +21,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import model.Board;
 
-public class SolverScene {
+public class SolverView {
 	
 		public static Board solvableBoard = new Board();
 		BoardController ctrl = new BoardController();

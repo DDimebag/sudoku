@@ -4,12 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import toplist.Toplist;
 
-public class Main extends Application{
-	public static Stage primaryStage;
+public class Main extends Application {
 	
+	public static Stage primaryStage;
 	public static boolean solved = false;
 	public static int level = 0;
 	
@@ -18,7 +19,7 @@ public class Main extends Application{
 			Main.primaryStage = primaryStage;
 			Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 			Scene rootScene = new Scene(root);
-			//primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/target/resources/icon.png")));
+			Main.primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
 			Main.primaryStage.setScene(rootScene);
 
 			Main.primaryStage.setTitle("Sudoku for Progtech");

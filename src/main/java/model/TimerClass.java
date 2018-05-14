@@ -16,7 +16,7 @@ public class TimerClass {
 	
 	private int secondsPassed = 0;
 
-	private static Logger logger = LoggerFactory.getLogger(Timer.class);
+	private static Logger logger = LoggerFactory.getLogger(TimerClass.class);
 	
 	public Timer timer = new Timer();
 	public Text timerText = new Text();

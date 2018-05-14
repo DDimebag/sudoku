@@ -14,8 +14,9 @@ public class Board {
 	 * Size of the boxes within a {@code Board}.
 	 */
 	public static final int boxSize = 3;
-	private int[][] board = new int[boardSize][boardSize];
 
+	private int[][] board = new int[boardSize][boardSize];
+	
 	/**
 	 * Initializes the {@code board} to zero.
 	 */
@@ -109,14 +110,20 @@ public class Board {
 	 * @return true if the two has the same values
 	 */
 	public static boolean isEqual(Board board1, Board board2) {
-		for (int row = 0; row < 9; row++)
-			for (int col = 0; col < 9; col++)
+		for (int row = 0; row < boardSize; row++)
+			for (int col = 0; col < boardSize; col++)
 				if (board1.getValue(row, col) != board2.getValue(row, col))
 					return false;
 		return true;
 
 	}
 
+	/**
+	 * Transforms a {@code board} to a boolean array,
+	 * where the 0 represents false.
+	 * 
+	 * @return a boolean array that represents a {@code Board}'s {@code board}.
+	 */
 	public boolean[] boardToBool() {
 		boolean[] arr = new boolean[81];
 		for (int i = 0; i < 81; i++)

@@ -45,9 +45,8 @@ public class EreaseValues {
 			col = i % 9;
 			tempValue = board.getValue(row, col);
 			board.setValue(row, col, 0);
-			Board b2 = new Board(board);
 			
-			if(solve.solveBoardAsc(b2) && !solve.isMultipleSolution(board)) {
+			if(!solve.isMultipleSolution(board)) {
 				ereasedValues--;
 				continue;
 			}
@@ -55,7 +54,6 @@ public class EreaseValues {
 				board.setValue(row, col, tempValue);
 				ereasedValues++;
 			}
-				
 		}
 	}
 }

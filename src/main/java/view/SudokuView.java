@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.BoardController;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -22,15 +21,15 @@ import javafx.scene.text.Text;
 import model.Board;
 import model.TimerClass;
 
-public class SudokuScene {
+public class SudokuView {
 	
 	public static Board modifiedBoard;
 	BoardController ctrl = new BoardController();
-	TimerClass tc = new TimerClass();
+	TimerClass tc;
 	private static final String IDLE_BUTTON_STYLE = "-fx-background-color: white; -fx-background-radius: 0px";
     private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: lightgrey; -fx-text-fill: black; -fx-font-weight: bold";
 
-	public SudokuScene(TimerClass timer) {
+	public SudokuView(TimerClass timer) {
 		tc = timer;
 	}
 	
@@ -51,14 +50,12 @@ public class SudokuScene {
 				ctrl.backButtonClicked(e);
 				tc.timer.cancel();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
 		
 		root.getChildren().add(backButton);
 		
-		// timer
 		tc.timerText.setX(500);
 		tc.timerText.setY(50);
 		tc.timerText.setFill(Color.GREEN);
@@ -121,14 +118,12 @@ public class SudokuScene {
 				text.setFont(Font.font(30));
 			}
 
-			setAlignment(Pos.CENTER);
 			getChildren().addAll(border, text);
 
 			this.setOnMouseClicked(e -> {
 				try {
 					ctrl.tileClicked(e, this, tc);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			});

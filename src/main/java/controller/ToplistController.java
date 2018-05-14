@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 import main.Main;
 import model.Board;
 import toplist.Toplist;
-import view.SolverScene;
+import view.SolverView;
 
 public class ToplistController implements Initializable {
 	 	@FXML
@@ -24,12 +24,11 @@ public class ToplistController implements Initializable {
 	public void backButtonClicked(ActionEvent event) throws IOException {
 		Main.solved = false;
 		Board board = new Board();
-		SolverScene.solvableBoard = new Board(board);
+		SolverView.solvableBoard = new Board(board);
 
 		Parent root = FXMLLoader.load(getClass().getResource("/view/RootView.fxml"));
 		Scene rootScene = new Scene(root);
 		
-		//Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		Main.primaryStage.setTitle("Sudoku for Progtech");
 		Main.primaryStage.setScene(rootScene);
 		Main.primaryStage.show();
@@ -66,5 +65,4 @@ public class ToplistController implements Initializable {
 		else
 			t3.setText(time3);
 	}
-
 }

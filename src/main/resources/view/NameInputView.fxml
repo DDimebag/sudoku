@@ -6,21 +6,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" prefHeight="250.0" prefWidth="500.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.162" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NameInputController">
+<AnchorPane fx:id="rootPane" maxHeight="250.0" maxWidth="500.0" minHeight="250.0" minWidth="500.0" prefHeight="250.0" prefWidth="500.0" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8.0.162" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NameInputController">
    <children>
-      <Text layoutX="62.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your nickname:" AnchorPane.leftAnchor="70.0">
+      <Text layoutX="85.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your nickname:" AnchorPane.leftAnchor="85.0">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text layoutX="184.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="184.357421875" AnchorPane.topAnchor="13.576171875">
+      <Text fill="#fd0b0b" layoutX="140.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!" AnchorPane.topAnchor="13.626953125">
          <font>
-            <Font size="18.0" />
+            <Font size="30.0" />
          </font>
       </Text>
-      <TextField fx:id="nameField" layoutX="219.0" layoutY="97.0" prefHeight="26.0" prefWidth="204.0" AnchorPane.rightAnchor="70.0" />
-      <Button fx:id="submitButton" layoutX="376.0" layoutY="150.0" mnemonicParsing="false" onAction="#submitButtonClicked" text="Submit" />
-      <Text layoutX="104.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You beat the previous recod in this difficulty">
+      <TextField fx:id="nameField" layoutX="226.0" layoutY="119.0" prefHeight="26.0" prefWidth="204.0" AnchorPane.rightAnchor="70.0" />
+      <Button fx:id="submitButton" layoutX="376.0" layoutY="169.0" mnemonicParsing="false" onAction="#submitButtonClicked" text="Submit" />
+      <Text layoutX="104.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You beat the previous recod in this difficulty!">
          <font>
             <Font size="15.0" />
          </font>
