@@ -32,3 +32,4 @@ This project is licensed under the Apache License, Version 2.0  - see the [LICEN
 Thanks for the Programming Environments and Programming Technologies classes
 and of course for the [Stackoverflow](https://stackoverflow.com/),
 that I managed to make this project.
+Application icon by [icon8.com](https://icons8.com/)
