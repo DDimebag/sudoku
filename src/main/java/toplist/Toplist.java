@@ -29,13 +29,14 @@ public class Toplist {
 	
 	private String fileSeparator = System.getProperty("file.separator");
 	private File toplistFile;
-
+	File dir = new File(System.getProperty("user.home") +  fileSeparator + "sudokutoplist");
+	boolean successful = dir.mkdir();
 	/**
 	 * Assigns {@code toplistFile} depending on from which directory we run the
 	 * program.
 	 */
 	public Toplist() {
-		toplistFile = new File(System.getProperty("user.home") + fileSeparator + "toplist.xml");
+		toplistFile = new File(System.getProperty("user.home") + fileSeparator + "sudokutoplist" + fileSeparator + "toplist.xml");
 	}
 
 	/**

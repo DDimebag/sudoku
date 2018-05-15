@@ -42,7 +42,7 @@ public class BoardController {
 	
 
 	public void solveButtonClicked(ActionEvent event) throws IOException {
-		logger.info("solved value: " + Main.solved);
+		logger.info("solved value: {}", Main.solved);
 		if(Main.solved) {
 			;
 		}

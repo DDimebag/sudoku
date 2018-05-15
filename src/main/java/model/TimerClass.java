@@ -24,7 +24,7 @@ public class TimerClass {
 		public void run() {
 			secondsPassed++;
 			timerText.setText(Integer.toString(secondsPassed));
-			logger.trace("secondsPassed: " + secondsPassed);
+			logger.trace("secondsPassed: {}", secondsPassed);
 		}
 	};
 
