@@ -41,11 +41,10 @@ public class BoardController {
     }
 	
 
-	public void solveButtonPushed(ActionEvent event) throws IOException {
+	public void solveButtonClicked(ActionEvent event) throws IOException {
 		logger.info("solved value: " + Main.solved);
 		if(Main.solved) {
 			;
-
 		}
 		else {
 			Solver solver = new Solver();
@@ -126,13 +125,14 @@ public class BoardController {
 			sv.showAlert();
 
 			Toplist tl = new Toplist();
-		
-			logger.trace("current time: " + solveTime);
-			logger.trace("level id: " + Main.level);
+			
+			logger.trace("current time: {}", solveTime);
+			logger.trace("level id: {}", Main.level);
 
 			levelBestTime = tl.getTimeById(Main.level);
 			
-			logger.trace("best time: " + levelBestTime);
+			//logger.trace("best time: " + levelBestTime);
+			logger.trace("best time: {}", levelBestTime);
 			
 			if (solveTime < levelBestTime || levelBestTime == 0) {
 				logger.trace("new record");
@@ -202,6 +202,6 @@ public class BoardController {
 				}
 			}
 		}
-		logger.trace("tile text: " + tile.text.getText());
+		logger.trace("tile text: {}", tile.text.getText());
 	}
 }

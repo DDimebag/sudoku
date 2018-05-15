@@ -62,12 +62,10 @@ public class SolverView {
 			solveButton.setOnMouseEntered(e -> solveButton.setStyle(HOVERED_BUTTON_STYLE));
 			solveButton.setOnMouseExited(e -> solveButton.setStyle(IDLE_BUTTON_STYLE));
 			
-			//TODO
 			solveButton.setOnAction(e -> {
 				try {
-					ctrl.solveButtonPushed(e);
+					ctrl.solveButtonClicked(e);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			});

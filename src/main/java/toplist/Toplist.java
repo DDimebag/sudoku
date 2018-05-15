@@ -35,22 +35,17 @@ public class Toplist {
 	 * program.
 	 */
 	public Toplist() {
-		if (System.getProperty("user.dir").contains("target")) {
-			toplistFile = new File(
-					System.getProperty("user.dir") + fileSeparator + "classes" + fileSeparator + "toplist.xml");
-		} else {
-			toplistFile = new File(System.getProperty("user.dir") + fileSeparator + "target" + fileSeparator + "classes"
-					+ fileSeparator + "toplist.xml");
-		}
+		toplistFile = new File(System.getProperty("user.home") + fileSeparator + "toplist.xml");
 	}
 
 	/**
 	 * Creates the toplist.xml, if it doesn't exist yet.
 	 */
 	public void createToplistXML() {
-
+		//toplistFile = new File(System.getProperty("user.home") + fileSeparator + "toplist.xml");
 		try {
 			if (!toplistFile.exists()) {
+				
 				logger.trace("toplist.xml created");
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
